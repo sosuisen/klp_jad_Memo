@@ -8,12 +8,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MyApp extends Application {
-
+	
 	@Override
 	public void start(Stage stage) {
 		var tField = new TextField();
 		var tArea = new TextArea();
 		
+		tField.setOnAction(e -> {
+			tArea.appendText(tField.getText());
+			tField.clear();
+		});
+
 		var vBox = new VBox();
 		vBox.getChildren().add(tField);
 		vBox.getChildren().add(tArea);
