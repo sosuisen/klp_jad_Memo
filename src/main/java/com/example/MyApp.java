@@ -9,15 +9,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MyApp extends Application {
-	
+
 	@Override
 	public void start(Stage stage) {
 		var tField = new TextField();
 		var listView = new ListView<String>();
-		ObservableList<String> list = listView.getItems();
-		
+		ObservableList<String> model = listView.getItems();
+
 		tField.setOnAction(e -> {
-			list.add(tField.getText());
+			model.add(tField.getText());
 			tField.clear();
 		});
 
