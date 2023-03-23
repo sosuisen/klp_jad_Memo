@@ -15,7 +15,7 @@ public class MyApp extends Application {
 		var tArea = new TextArea();
 		
 		tField.setOnAction(e -> {
-			tArea.appendText(tField.getText());
+			tArea.appendText(tField.getText() + "\n");
 			tField.clear();
 		});
 
