@@ -1,6 +1,7 @@
 package com.example;
 
 import javafx.application.Application;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -25,9 +26,17 @@ public class MyApp extends Application {
 			tField.clear();
 		});
 
-		Button btn = new Button("コンソールへ出力");
+		Button outputBtn = new Button("コンソールへ出力");
 		// ボタンを押すと、リストの内容をコンソールへ出力	
-		btn.setOnAction(e -> model.forEach(node -> System.out.println(((TextField) node).getText())));
+		outputBtn.setOnAction(e -> model.forEach(node -> System.out.println(((TextField) node).getText())));
+
+		// 発展課題 4b
+		Button removeBtn = new Button("削除");
+		// ボタンを押すと、リストの最後尾を削除
+		removeBtn.setOnAction(e -> {
+			if (model.size() > 0)
+				model.remove(model.size()-1);
+		});
 
 		// 画面レイアウト用のVBoxとリスト表示用のVBoxは分けておいたほうが便利
 		VBox layout = new VBox();
@@ -35,11 +44,16 @@ public class MyApp extends Application {
 
 		// レイアウト
 		layout.getChildren().add(tField);
-		layout.getChildren().add(btn);
+		layout.getChildren().add(outputBtn);
+		layout.getChildren().add(removeBtn);  // 発展課題 4b
 		layout.getChildren().add(textFieldList);
 
+		// 発展課題 4b
 		model = textFieldList.getChildren();
-
+		model.addListener((ListChangeListener.Change<? extends Node> c) -> {
+			System.out.println("リストが変更されました");
+		});
+		
 		var scene = new Scene(layout, 320, 500);
 		stage.setScene(scene);
 		stage.show();
