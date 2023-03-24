@@ -13,16 +13,12 @@ import javafx.stage.Stage;
 public class MyApp extends Application {
 	private ObservableList<Node> model;
 
-	private void addItem(String txt) {
-		model.add(new TextField(txt));
-	}
-
 	@Override
 	public void start(Stage stage) {
 		var tField = new TextField();
 
 		tField.setOnAction(e -> {
-			addItem(tField.getText());
+			model.add(new TextField(tField.getText()));
 			tField.clear();
 		});
 
