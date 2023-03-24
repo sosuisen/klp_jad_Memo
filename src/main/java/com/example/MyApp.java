@@ -35,7 +35,7 @@ public class MyApp extends Application {
 		// ボタンを押すと、リストの最後尾を削除
 		removeBtn.setOnAction(e -> {
 			if (model.size() > 0)
-				model.remove(model.size()-1);
+				model.remove(model.size() - 1);
 		});
 
 		// 画面レイアウト用のVBoxとリスト表示用のVBoxは分けておいたほうが便利
@@ -45,15 +45,13 @@ public class MyApp extends Application {
 		// レイアウト
 		layout.getChildren().add(tField);
 		layout.getChildren().add(outputBtn);
-		layout.getChildren().add(removeBtn);  // 発展課題 4b
+		layout.getChildren().add(removeBtn); // 発展課題 4b
 		layout.getChildren().add(textFieldList);
 
 		// 発展課題 4b
 		model = textFieldList.getChildren();
-		model.addListener((ListChangeListener.Change<? extends Node> c) -> {
-			System.out.println("リストが変更されました");
-		});
-		
+		model.addListener((ListChangeListener.Change<? extends Node> c) -> System.out.println("リストが変更されました"));
+
 		var scene = new Scene(layout, 320, 500);
 		stage.setScene(scene);
 		stage.show();
