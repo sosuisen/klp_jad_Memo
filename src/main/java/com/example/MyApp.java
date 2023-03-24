@@ -14,8 +14,6 @@ public class MyApp extends Application {
 
 	@Override
 	public void start(Stage stage) {
-		ObservableList<Node> model;
-		
 		var tField = new TextField();
 		Button outputBtn = new Button("コンソールへ出力");
 		// 発展課題 4b
@@ -32,21 +30,23 @@ public class MyApp extends Application {
 		layout.getChildren().add(textFieldList);
 
 		// 発展課題 4b
-		model = textFieldList.getChildren();
+		ObservableList<Node> model = textFieldList.getChildren();
 		model.addListener((ListChangeListener.Change<? extends Node> c) -> System.out.println("リストが変更されました"));
-		// ボタンを押すと、リストの最後尾を削除
-		removeBtn.setOnAction(e -> {
-			if (model.size() > 0)
-				model.remove(model.size() - 1);
-		});
-
-		// ボタンを押すと、リストの内容をコンソールへ出力	
-		outputBtn.setOnAction(e -> model.forEach(node -> System.out.println(((TextField) node).getText())));
 
 		// ボタンを押すと項目を追加
 		tField.setOnAction(e -> {
 			model.add(new TextField(tField.getText()));
 			tField.clear();
+		});
+
+		// ボタンを押すと、リストの内容をコンソールへ出力	
+		outputBtn.setOnAction(e -> model.forEach(node -> System.out.println(((TextField) node).getText())));
+
+		// 発展課題 4b
+		// ボタンを押すと、リストの最後尾を削除
+		removeBtn.setOnAction(e -> {
+			if (model.size() > 0)
+				model.remove(model.size() - 1);
 		});
 
 		var scene = new Scene(layout, 320, 500);
