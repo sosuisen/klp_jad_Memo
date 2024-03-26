@@ -8,7 +8,7 @@
     <stringAttribute key="gradle_user_home" value=""/>
     <stringAttribute key="java_home" value=""/>
     <listAttribute key="jvm_arguments">
-        <listEntry value="-DDEBUG=false"/>
+        <listEntry value="-DDEBUG=true"/>
     </listAttribute>
     <booleanAttribute key="offline_mode" value="false"/>
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
@@ -21,5 +21,5 @@
     <listAttribute key="tasks">
         <listEntry value="run"/>
     </listAttribute>
-    <stringAttribute key="working_dir" value="${workspace_loc:/kcg_jad_Memo}"/>
+    <stringAttribute key="working_dir" value="${workspace_loc:/klp_jad_Memo}"/>
 </launchConfiguration>

@@ -10,7 +10,7 @@ mainメソッドを含むクラスが com.example.MyApp
 plugins {
   id 'application'
   id 'eclipse'
-  id 'org.openjfx.javafxplugin' version '0.0.13'
+  id 'org.openjfx.javafxplugin' version '0.1.0'
   id 'org.beryx.jlink' version '2.25.0'
 }
 
@@ -22,7 +22,7 @@ compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
 javafx {
-    version = "19"
+    version = "21"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
